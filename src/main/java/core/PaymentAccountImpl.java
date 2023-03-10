@@ -4,6 +4,8 @@ package core;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Random;
+
 @Setter
 @Getter
 
@@ -12,10 +14,7 @@ public class PaymentAccountImpl implements PaymentAccount {
     private float amountOfMoney;
 
     public PaymentAccountImpl() {
-
-        this.id = (long) Math.random();
-
-
+        this.id = Math.abs(new Random().nextLong());
     }
 
     @Override
@@ -37,5 +36,10 @@ public class PaymentAccountImpl implements PaymentAccount {
     @Override
     public float checkDeposit(long id) {
         return amountOfMoney;
+    }
+
+    @Override
+    public String toString() {
+        return "Депозитный счет. Состояние: " + amountOfMoney + " руб.";
     }
 }

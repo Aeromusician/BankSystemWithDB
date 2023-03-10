@@ -1,9 +1,9 @@
 package core;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Random;
 
 @Getter
 @Setter
@@ -11,6 +11,10 @@ import lombok.Setter;
 public class DepositAccountImpl implements DepositAccount {
     private float amountOfMoney;
     private long id;
+
+    public DepositAccountImpl() {
+        this.id = Math.abs(new Random().nextLong());
+    }
 
     @Override
     public void deposit(float amount) {
@@ -20,5 +24,10 @@ public class DepositAccountImpl implements DepositAccount {
     @Override
     public float checkDeposit(long id) {
         return amountOfMoney;
+    }
+
+    @Override
+    public String toString() {
+        return "Депозитный счет. Состояние: " + amountOfMoney + " руб.";
     }
 }
