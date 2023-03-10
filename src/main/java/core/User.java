@@ -9,6 +9,8 @@ import java.util.Random;
 @Setter
 public class User {
     private long userId;
+    private String name;
+    private String secondName;
 
     private Account account;
 

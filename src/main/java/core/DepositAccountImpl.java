@@ -18,7 +18,13 @@ public class DepositAccountImpl implements DepositAccount {
 
     @Override
     public void deposit(float amount) {
-        this.amountOfMoney += amount;
+        if (amount > 0) {
+            this.amountOfMoney += amount;
+            System.out.println("Вы внесли " + amount + " на ваш депозитный счёт.");
+        } else {
+            System.out.println("Ошибка, введенная сумма недопустима.");
+        }
+
     }
 
     @Override
